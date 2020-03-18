@@ -1,99 +1,292 @@
 <!DOCTYPE html>
 <html>
-<title>Paper Bridges</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paper Bridges NC</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
 <style>
-body {
-   background: #ffeae8;
-}
-</style>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", Roboto}
-
-body, html {
-  height: 100%;
-  line-height: 1.8;
+body{
+  margin: 20 px;
+  padding: 20 px;
+  background: #ffeae8;
+  font-family: "Montserrat";
 }
 
-/* Full height image header */
-.bgimg-1 {
-  background-position: center;
+.navbar{
+  position: fixed;
+  height: 80px;
+  overflow: hidden;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  width: 100%;
+}
+.logo{
+  background: url(logo.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 180px;
+  height: 18px;
+  float: left;
+  margin-left:20px;
+}
+.menu{
+  position: absolute;
+  right: 20px;
+}
+.menu a{
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 20px;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+.menu a:hover{
+  color: #6ab04c;
+}
+.header{
+  width: 100%;
+  height: 600px;
+  background: url(bg.png) no-repeat 50% 50%;
   background-size: cover;
-  background-image: url("https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-0/p640x640/84076044_10157357973909130_1682967713573502976_o.jpg?_nc_cat=100&_nc_ohc=DoEvNp0q-c8AX_HTtEH&_nc_ht=scontent-atl3-1.xx&_nc_tp=6&oh=aaf6c9f1d78f506dfe925e9d16502a84&oe=5EBCC58F");
-  min-height: 100%;
+  margin-top: 80px;
 }
+.btn{
+  display: none;
+  position: absolute;
+  right: 20px;
+}
+.btn:hover > span{
+  background: #6ab04c;
+}
+.btn span{
+  display: block;
+  margin: 6px;
+  width: 40px;
+  height: 3px;
+  background: #333;
+}
+p{
+  padding: 20px;
+  font-size: 20px;
+  text-align: justify;
 
-.w3-bar .w3-button {
-  padding: 16px;
+}
+@media only screen and (max-width : 600px) {
+  .navbar{
+    overflow: visible;
+  }
+  .menu{
+    width: 100%;
+    right: 0;
+    top: 80px;
+    background: #f1f1f1;
+    overflow: hidden;
+    max-height: 0;
+  }
+  .menu a{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+  }
+  .btn{
+    display: block;
+    cursor: pointer;
+  }
+  .show{
+    max-height: 500px;
+  }
+}
+.box{
+  width: 450px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  color: white;
+  font-family: 'Century Gothic',sans-serif;
+}
+.box-img{
+  border-radius: 60%;
+  width: 200px;
+  height: 200px;
+}
+.box h1{
+  font-size: 40px;
+  letter-spacing: 4px;
+  font-weight: 100;
+}
+.box h5{
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+.box p{
+  text-align: justify;
 }
 </style>
-<body>
-<!--Logo Airplane -->
+  <body>
+<div class="navbar">
+ <!--Logo Airplane -->
   <div class="header-logo">
             <svg id="logo" width="150" height="42" viewBox="0 0 41 22" fill="	#FFC0CB">
                 <path d="M33.7857 18.6786C33.739 18.6552 33.6903 18.6252 33.6399 18.5889C31.7025 17.4062 27.6816 15.275 25.9746 15.5536C24.9235 17.4362 23.9189 19.5535 23.2857 21C18.4456 18.9651 7.21239 12.1163 1 1L39.268 6.25659C39.5365 6.25356 39.7837 6.28434 40 6.35714L39.268 6.25659C37.6925 6.27436 35.3842 7.45629 34.2857 8.14286C35.2571 10.2857 34.3571 16.0595 33.7857 18.6786Z" fill="#e0ffff" />
-                <path d="M1 1L40 6.35714C38.5143 5.85714 35.5714 7.33929 34.2857 8.14286M1 1L29.3571 11.3571M1 1L34.2857 8.14286M1 1C7.21239 12.1163 18.4456 18.9651 23.2857 21C23.9189 19.5535 24.9235 17.4362 25.9746 15.5536M29.3571 11.3571C30.3571 13.5595 32.6429 18.1071 33.7857 18.6786M29.3571 11.3571C28.5217 11.4345 27.2158 13.3304 25.9746 15.5536M33.7857 18.6786C34.3571 16.0595 35.2571 10.2857 34.2857 8.14286M33.7857 18.6786C31.9116 17.5179 27.7257 15.2679 25.9746 15.5536" stroke="#FF8989"></svg>
-  <!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"/></i>
-    </a>
-    <a href="https://paperbridges.github.io" class="w3-bar-item w3-button">PAPER BRIDGES</a>
-    <a href="https://paperbridges.github.io/about/" class="w3-bar-item w3-button w3-hide-small"><i class=""></i> ABOUT</a>
-    <a href="https://paperbridges.github.io/writeletter/" class="w3-bar-item w3-button w3-hide-small"><i class=""></i> GET INVOLVED</a>
-    <a href="https://paperbridges.github.io/#contact/" class="w3-bar-item w3-button w3-hide-small"><i class=></i> CONTACT</a>
-    <a href="https://paperbridges.github.io/topcards/" class="w3-bar-item w3-button w3-hide-small"><i class=""></i> X-MAS CARDS </a>
-    
-   </div>
+                <path d="M1 1L40 6.35714C38.5143 5.85714 35.5714 7.33929 34.2857 8.14286M1 1L29.3571 11.3571M1 1L34.2857 8.14286M1 1C7.21239 12.1163 18.4456 18.9651 23.2857 21C23.9189 19.5535 24.9235 17.4362 25.9746 15.5536M29.3571 11.3571C30.3571 13.5595 32.6429 18.1071 33.7857 18.6786M29.3571 11.3571C28.5217 11.4345 27.2158 13.3304 25.9746 15.5536M33.7857 18.6786C34.3571 16.0595 35.2571 10.2857 34.2857 8.14286M33.7857 18.6786C31.9116 17.5179 27.7257 15.2679 25.9746 15.5536" stroke="#FF8989"</svg>
 </div>
-    </a>
-  </div></right>
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="https://paperbridges.github.io" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
-    <a href="https://paperbridges.github.io/about/" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="https://paperbridges.github.io/writeletter" class="w3-bar-item w3-button" onclick="toggleFunction()">GET INVOLVED</a>
-    <a href="https://paperbridges.github.io/#contact/" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="https://paperbridges.github.io/topcards/" class="w3-bar-item w3-button" onclick="toggleFunction()">X-MAS </a>
+<a class="btn">
+<span></span>
+<span></span>
+<span></span>
+</a>
+<div class="menu">
+    <a href="https://paperbridges.github.io/">Paper Bridges</a>
+  <a href="https://paperbridges.github.io/about/">About</a>
+  <a href="https://paperbridges.github.io/writeletter/">Get Involved</a>
+    <a href="https://paperbridges.github.io/topcards/">Featured Cards</a>
+  <a href="https://us4.list-manage.com/survey?u=d754b271370570a82ea846f79&id=1a1a0e5b6c">Contact</a>
+    </div></div>
+<div class="header">
+<center><img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-0/p640x640/84076044_10157357973909130_1682967713573502976_o.jpg?_nc_cat=100&_nc_ohc=DoEvNp0q-c8AX_HTtEH&_nc_ht=scontent-atl3-1.xx&_nc_tp=6&oh=aaf6c9f1d78f506dfe925e9d16502a84&oe=5EBCC58F" style="100%"></img></src></center>
+</div><br><br><br><br>
+<center><h1><a href='https://docs.google.com/document/d/1HDa10TftucQDadbVV0ojDKmrfVGj7qsHm082H6lGflQ/edit?usp=sharing'><b>Project Statement</b></h1></a></center>
+<p>
+We are a group of students at North Carolina that one to make the world a better place! Paper Bridges Corp is a 501(c)(3) nonprofit organization based in Maryland that encourage students to write letters to orphanages around the world. We started out as a chapter in 2019 to support orphans around the world. We strive to provide hope for children in orphanages internationally by writing letters to kids, as well as sending them small gifts to remind them that there are people who care about them. Our letters are written by people of all age groups and walks of life, each full of love and encouragement. We are currently receiving letters from Sanderson High School and Leesville Road High School. We have reached 14 countries, and are continue to make a difference one letter at a time.</p>
+<p>
+Although nothing can replace the critical role parental love constitutes in a child’s life, we can still hope to ease an orphan’s journey by providing encouragement and support. Our members partner and work with school clubs, orphanages, and communities. This year, we aim to expand our networks by partnering with Vietnamese orphanages like the Vinh-Son orphanage. We welcome all to volunteer for our club, but only official members are eligible to receive certificates. We offer service hours to members for writing 100-500 words per letter. If you would like to partner up or have any questions regarding our organization, please submit a response form to us.</p>
+<br><br>
+ <!--Meet The Team-->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
 
-    
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #d86161;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+
+  <h1><center><b>Meet The Team</h1></center></b>
+<center><h3>Apply for a position on our <a href='https://docs.google.com/forms/d/1MwfqwyMxho7nSuE8F3vD5qcFTuhhGHYedG58_eajZMM/prefill'>team</h3></a></center>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://miro.medium.com/max/3226/1*nLa3iGTlC7N4xhheQ8e7OQ.jpeg" alt="huong" style="width:100%">
+      <div class="container">
+        <h2>Huong N.</h2>
+        <p class="title">President & Founder</p>
+        <p>Huong is the partnership member of Girl Genius Magazine Issue III and a North Carolina Museum of Art's teen art council representative. Raised by a single-parent immigrant, she proclaims herself as a “proud product of God's grace.” She loves children, and strive to work for students in poverty. </p>
+        <p><button class="button">mhuong1703@gmail.com</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://miro.medium.com/max/3226/1*nLa3iGTlC7N4xhheQ8e7OQ.jpeg" alt="ben" style="width:100%">
+      <div class="container">
+        <h2>Ben Vy V.</h2>
+        <p class="title">Vice President</p>
+        <p>Ben is the heart of our Paper Bridges team. Gifted for his leadership and language skills, he wrote the most letters. He is able to speak Vietnamese, English, and Latin. He is an aspiring STEM leader, with a strong background from being a Chick-fil-A Student Leader.</p>
+        <p><button class="button">vyvo75328@gmail.com</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="https://www.atc-logistics.ie/wp-content/uploads/2016/02/place-holder-b-person.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Lily Vy N.</h2>
+        <p class="title">Treasurer</p>
+        <p>Our treasurable treasurer is an active member of the spelling bee program, and the winner of the Wake County Student Spotlight. She is in charge of our social media and sending out updates. As a back to back winner of many competitions, she strives under pressure and team work. She is also a lover of food and writing.</p>
+        <p><button class="button">@ paperbridges.nc</button></p>
+      </div>
+    </div>
   </div>
 </div>
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-xxlarge">Our Work</span>
-    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">support orphans one letter at a time</a></p>
-  </div>
-</header><br><br>
-
-  <!-- About Section -->
-<div class="w3-container" style="width:100%" id="about">
- <!--The Letters-->
-  <div class="w3-container w3-content w3-white" style="max-width:90%" id="band">
- <h1><a href='https://docs.google.com/document/d/1HDa10TftucQDadbVV0ojDKmrfVGj7qsHm082H6lGflQ/edit?usp=sharing'><b>Our Team, Our Story</b></h1></a>
- <h4> We are a group of students at North Carolina that want to make the world a better place! Paper Bridges Corp is a 501(c)(3) nonprofit organization based in Maryland that encourage students to write letters to orphanages around the world. We started out as a chapter in 2019 to support orphans around the world. We strive to provide hope for children in orphanages internationally by writing letters to kids, as well as sending them small gifts to remind them that there are people who care about them. Our letters are written by people of all age groups and walks of life, each full of love and encouragement. We are currently receiving letters from Sanderson High School and Leesville Road High School. We have reached 14 countries, and are continue to make a difference one letter at a time. </h4>
-    <h4>Although nothing can replace the critical role parental love constitutes in a child’s life, we can still hope to ease an orphan’s journey by providing encouragement and support. Our members partner and work with school clubs, orphanages, and communities. This year, we aim to expand our networks by partnering with Vietnamese orphanages like the Vinh-Son orphanage. We welcome all to volunteer for our club, but only official members are eligible to receive certificates. We offer service hours to members for writing 100-500 words per letter. If you would like to partner up or have any questions regarding our organization, please submit a response form to us.</h4>
-<!--Chapter-->
-<h1><a href='https://www.paper-bridges.org/new-chapter-registration.html'><b>Help Us Expand</b></h1></a>
- <h4>We love it when communities come together! Invite a group of friends, co-workers, or classmates to write letters with.</h4>
-    <h4>Collect signatures, pictures, and letters as proof for club registration</h4>
-    <h4>If you are interested in starting a school chapter, apply to become a group. We will assist you during this important transition, but the club requirements should be embedded within your school's website.</h4><br>
- <h2>Or apply for a position on our <a href='https://docs.google.com/forms/d/e/1FAIpQLSc3VSZ7oHSdu-TsK1LAKw_hVKCJa7qjo_drEWEoxHY2fBo7hg/viewform?embedded=true'>team</h2></a>
 <!-- Footer -->
 	<br><br><br><br>
-	<footer class="w3-center w3-padding-64">
-  <div class="w3-xlarge w3-section">
-    <div class="w3-large w3-section">
-    <i class="fa fa-instagram w3-hover-opacity"><a href="https://www.instagram.com/p/B7L3tALHSzG/" target="_blank"> Instagram</a></i>
+  <center>  <div>
+    <h3><i class="fa fa-instagram w3-hover-opacity"><a href="https://www.instagram.com/p/B7L3tALHSzG/" target="_blank"> Instagram</a></i></h3>
     
   </div>
-  <p><space></space><small>  &#169; Copyrighted PaperBridges NC | 2019 |</small></p>
+  <p><center>  
+    &#169; Copyrighted PaperBridges NC | 2019 |</p></center>
     
 </footer>
+  </center>
+</body>
+</html>
+<script type="text/javascript">
+
+$(".btn").on("click",function(){
+  $('.menu').toggleClass("show");
+});
+
+
+</script>
+  </body>
+</html>
+
